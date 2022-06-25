@@ -1,12 +1,12 @@
 import { algToHash } from './algs.js';
 import { getIssuerMetadata } from './discovery.js';
-import { DecodedJwt, JsonWebKeyset } from './types.js';
+import {DecodedJwt, JsonWebKeyset, JwksOptions} from './types.js';
 
 /**
  * Fetch a json web keyset.
  */
-export async function getJwks(issuer: string): Promise<JsonWebKeyset> {
-  const issuerMetadata = await getIssuerMetadata(issuer);
+export async function getJwks(issuer: string, options: JwksOptions = {}): Promise<JsonWebKeyset> {
+  const issuerMetadata = await getIssuerMetadata(issuer, options);
 
   let url;
   if (issuerMetadata.jwks_uri) {
