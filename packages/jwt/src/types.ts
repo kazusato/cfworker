@@ -76,4 +76,8 @@ export interface MtlsEndpointAliases {
   device_authorization_endpoint?: string;
 }
 
+export interface JwksOptions {
+  discoveryDocUrl?: string
+}
+
 export type JwtParseResult = ValidJwtParseResult | InvalidJwtParseResult;
